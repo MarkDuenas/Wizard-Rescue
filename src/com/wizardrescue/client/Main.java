@@ -1,7 +1,10 @@
 package com.wizardrescue.client;
 
+import com.wizardrescue.controller.Game;
+
 class Main {
     public static void main(String[] args) {
-        // Do stuff here
+        Game game = new Game();
+        game.execute();
     }
 }
