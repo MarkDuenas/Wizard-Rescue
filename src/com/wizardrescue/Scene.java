@@ -2,6 +2,9 @@ package com.wizardrescue;
 
 import com.apps.util.Prompter;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Scene {
@@ -10,17 +13,31 @@ public class Scene {
     private Enemy enemy;
     private Prompter prompter = new Prompter(new Scanner(System.in));
 
-    public void startAct(int currentAct) {
+    public void startAct() {
         if(Scene.currentAct > 3){
             return;
         }
-        Act act = new Act(currentAct, Location.LIBRARY);
+        Act act = new Act(Scene.currentAct);
         System.out.println("ACT" + Scene.currentAct + "START");
-        String result = prompter.prompt("Please type something: ");
-        System.out.println(result);
+
+        act.generateStory();
+
+
+        String choice = prompter.prompt("Please choose: ");
+        System.out.println(choice);
+
+        act.generateLocation(choice);
+
+        String location = prompter.prompt("Please choose: ");
+        System.out.println(location);
+
+        act.generateOptions(location);
+
+        String option = prompter.prompt("Please choose: ");
+        System.out.println(option);
 
         setCurrentAct(++Scene.currentAct);
-        startAct(Scene.currentAct);
+        startAct();
     }
 
     public static void setCurrentAct(int currentAct) {

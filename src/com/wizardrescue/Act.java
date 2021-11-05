@@ -9,48 +9,69 @@ import java.util.List;
 class Act {
 
     private int actNumber;
-    Location location;
+    String location;
     List<String> story;
 
-    public Act(int actNumber, Location location) {
+    public Act(int actNumber) {
         setActNumber(actNumber);
-        setLocation(location);
+        // setLocation(location);
 //        setStory(generateStory());
     }
 
-    private List<String> generateStory() {
+
+    public List<String> generateStory() {
         List<String> result = new ArrayList<>();
         try {
             result = Files.readAllLines(Path.of("data/act-" + getActNumber()));
-        }
-        catch (IOException e) {
+            result.forEach(line -> System.out.println(line));
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
     }
 
+    public List<String> generateLocation(String choice) {
+        location = choice;
+        List<String> result = new ArrayList<>();
+        try {
+            result = Files.readAllLines(Path.of("data/act-" + getActNumber()
+            + "-location-" + choice));
+            result.forEach(line -> System.out.println(line));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public List<String> generateOptions(String choice) {
+        List<String> result = new ArrayList<>();
+            try {
+                Files.readAllLines(Path.of("data/act-" + Scene.currentAct + "-location-"
+                        + location + "-opt-" + choice)).forEach(
+                        line -> System.out.println(line)
+                );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        return result;
+    }
+
+
+    private void setActNumber(int actNumber) {
+        this.actNumber = actNumber;
+    }
 
     public int getActNumber() {
         return actNumber;
     }
 
-    public void setActNumber(int actNumber) {
-        this.actNumber = actNumber;
-    }
 
-    public Location getLocation() {
-        return location;
-    }
+        public List<String> getStory () {
+            return story;
+        }
 
-    public void setLocation(Location location) {
-        this.location = location;
+        public void setStory (List < String > story) {
+            this.story = story;
+        }
     }
-
-    public List<String> getStory() {
-        return story;
-    }
-
-    public void setStory(List<String> story) {
-        this.story = story;
-    }
-}
