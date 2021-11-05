@@ -4,8 +4,8 @@ public class Enemy extends Character {
 
     private String type;
 
-    public Enemy(String name, int health, String description, String weapon) {
-        super(name, health, description, weapon);
+    public Enemy(String name, int health, String weapon) {
+        super(name, health, weapon);
     }
 
     @Override
