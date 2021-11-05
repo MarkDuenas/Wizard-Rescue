@@ -2,6 +2,7 @@ package com.wizardrescue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Hero extends Character {
 
@@ -25,6 +26,23 @@ public class Hero extends Character {
 
     @Override
     public void fight(Character enemy) {
-        //subtract from enemy health.
+        while(enemy.getHealth() >0 && getHealth() >0){
+            Double rand = new Random().nextDouble();
+            if(rand >= 0.0 && rand <= 0.3){
+                setHealth(getHealth()-10);
+                System.out.println(getName() + " has been attacked and his health now is " + getHealth());
+            }
+            else {
+                enemy.setHealth(enemy.getHealth()-10);
+                System.out.println(enemy.getName() + " has been attacked and his health now is "
+                        + enemy.getHealth());
+            }
+        }
+        if(getHealth() <=0){
+            System.out.println("Health is now " + getHealth() + " game over");
+        }
+        else {
+            System.out.println("Congratulation you have defeated the " + enemy.getName());
+        }
     }
 }

@@ -12,4 +12,6 @@ public class Enemy extends Character {
     public void fight(Character enemy) {
 
     }
+
+
 }
