@@ -36,6 +36,11 @@ public class Scene {
         String option = prompter.prompt("Please choose: ");
         System.out.println(option);
 
+
+        Enemy enemy = new Enemy("Juan",100, "Ax");
+        Hero hero = new Hero("Joe", "Sword");
+        hero.fight(enemy);
+
         setCurrentAct(++Scene.currentAct);
         startAct();
     }
