@@ -14,7 +14,8 @@ public class Scene {
     private Prompter prompter = new Prompter(new Scanner(System.in));
 
     public void startAct() {
-        if(Scene.currentAct > 3){
+
+        if (Scene.currentAct > 3) {
             return;
         }
         Act act = new Act(Scene.currentAct);
@@ -26,18 +27,21 @@ public class Scene {
         String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
         System.out.println(choice);
 
+
+
         act.generateLocation(choice);
+        if (Scene.currentAct != 3) {
+            String location = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
+            System.out.println(location);
 
-        String location = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
-        System.out.println(location);
+            act.generateOptions(location);
 
-        act.generateOptions(location);
-
-        String option = prompter.prompt("Please enter your choice: ", "1", "Invalid choice: enter 1");
-        System.out.println(option);
+            String option = prompter.prompt("Please enter your choice: ", "1", "Invalid choice: enter 1");
+            System.out.println(option);
+        }
 
 
-        Enemy enemy = new Enemy("Juan",100, "Ax");
+        Enemy enemy = new Enemy("Juan", 100, "Ax");
         Hero hero = new Hero("Joe", "Sword");
         hero.fight(enemy);
 
