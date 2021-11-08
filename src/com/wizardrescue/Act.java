@@ -103,9 +103,9 @@ class Act {
 
     public void triggerFight() {
         if(getActNumber() == 1) {
-            enemy = new Enemy("Mysterious Gentleman", 80, "Brass Knuckles");
+            enemy = new Enemy("Mysterious Gentleman", 80, "brassknuckle");
         } else {
-            enemy = new Enemy("Farmer Quentin", 100, "Pitchfork");
+            enemy = new Enemy("Farmer Quentin", 100, "pitchfork");
         }
         hero.fight(enemy);
     }

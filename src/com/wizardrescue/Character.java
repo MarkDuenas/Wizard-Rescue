@@ -44,14 +44,15 @@ abstract class Character {
 
     public void setWeapon(String weapon) {
         this.weapon = Weapon.valueOf(weapon.toUpperCase());
-        System.out.println(this.weapon);
     }
 
     // inner class(enum)
     enum Weapon {
         SWORD("Sword", 12),
         AXE("Axe", 15),
-        MORNINGSTAR("Morningstar", 10);
+        MORNINGSTAR("Morningstar", 10),
+        PITCHFORK("Pitchfork", 12),
+        BRASSKNUCKLE("Brass Knuckle", 10);
 
         private String display;
         private int damage;
