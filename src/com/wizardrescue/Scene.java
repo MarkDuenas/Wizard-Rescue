@@ -23,17 +23,17 @@ public class Scene {
         act.generateStory();
 
 
-        String choice = prompter.prompt("Please choose: ");
+        String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
         System.out.println(choice);
 
         act.generateLocation(choice);
 
-        String location = prompter.prompt("Please choose: ");
+        String location = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
         System.out.println(location);
 
         act.generateOptions(location);
 
-        String option = prompter.prompt("Please choose: ");
+        String option = prompter.prompt("Please enter your choice: ", "1", "Invalid choice: enter 1");
         System.out.println(option);
 
 
