@@ -28,6 +28,7 @@ public class Scene {
         System.out.println(choice);
 
         act.generateLocation(choice);
+
         if (Scene.currentAct != 3) {
             String location = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
             System.out.println(location);
