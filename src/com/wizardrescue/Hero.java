@@ -24,20 +24,30 @@ public class Hero extends Character {
         // save item to items
     }
 
+
+
     @Override
-    public void fight(Character enemy) {
-        while(enemy.getHealth() >0 && getHealth() >0){
-            Double rand = new Random().nextDouble();
-            if(rand >= 0.0 && rand <= 0.3){
-                setHealth(getHealth()-10);
-                System.out.println(getName() + " has been attacked and his health now is " + getHealth());
+    public void fight(Character enemy) throws InterruptedException {
+        Object obj = new Object();
+        try {
+            synchronized (obj) {
+                while (enemy.getHealth() > 0 && getHealth() > 0) {
+                    Double rand = new Random().nextDouble();
+                    if (rand >= 0.0 && rand <= 0.3) {
+                        setHealth(getHealth() - 10);
+                        System.out.println(getName() + " has been attacked and his health now is " + getHealth());
+                    } else {
+                        enemy.setHealth(enemy.getHealth() - 10);
+                        System.out.println(enemy.getName() + " has been attacked and his health now is "
+                                + enemy.getHealth());
+                    }
+                    obj.wait(2000);
+                }
             }
-            else {
-                enemy.setHealth(enemy.getHealth()-10);
-                System.out.println(enemy.getName() + " has been attacked and his health now is "
-                        + enemy.getHealth());
-            }
+        } catch (InterruptedException ex) {
+            System.out.println("invalid");
         }
+
         if(getHealth() <=0){
             System.out.println("Health is now " + getHealth() + " game over");
         }
