@@ -1,10 +1,8 @@
 package com.wizardrescue;
 
+import com.apps.util.Console;
 import com.apps.util.Prompter;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Scene {
@@ -19,6 +17,7 @@ public class Scene {
             currentAct = 1;
             return;
         }
+
         Act act = new Act(Scene.currentAct, this.hero);
 
         act.generateStory();
@@ -38,6 +37,7 @@ public class Scene {
             System.out.println(option);
         }
 
+        Console.blankLines(20);
         setCurrentAct(++Scene.currentAct);
         startAct(this.hero);
         if(Scene.currentAct == 3) {
