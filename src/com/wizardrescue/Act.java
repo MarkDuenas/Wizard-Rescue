@@ -60,12 +60,35 @@ class Act {
             if (checkFight()) {
                 triggerFight();
             }
+
+            if(checkScene()) {
+                minusHealth();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
     }
 
+    public void minusHealth() {
+        hero.setHealth(hero.getHealth() - 20);
+        System.out.println("Hero's health: " + hero.getHealth());
+        if(getActNumber() == 1) {
+            System.out.println("Enter 1 to continue to the forest.");
+        } else if (getActNumber() == 2) {
+            System.out.println("Enter 1 to continue to the farm.");
+        }
+    }
+
+    public boolean checkScene() {
+        boolean scene = false;
+        if (getActNumber() == 1 && "1".equals(location) && "2".equals(choice)) {
+            scene = true;
+        } else if(getActNumber() == 2 && "1".equals(location) && "2".equals(choice)){
+            scene = true;
+        }
+        return scene;
+    }
 
     public boolean checkFight() {
         boolean fight = false;
@@ -117,5 +140,16 @@ class Act {
 
     public String getChoice() {
         return choice;
+    }
+
+    public List<String> endScene() {
+        List<String> result = new ArrayList<>();
+        try {
+            result = Files.readAllLines(Path.of("data/conclusion"));
+            printFile(result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
