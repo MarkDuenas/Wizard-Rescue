@@ -35,13 +35,13 @@ public class Hero extends Character {
                     Double rand = new Random().nextDouble();
                     if (rand >= 0.0 && rand <= 0.3) {
                         setHealth(getHealth() - 10);
-                        System.out.println(getName() + " has been attacked and his health now is " + getHealth());
+                        System.out.println(getName() + " has been attacked and your health now is " + getHealth());
                     } else {
                         enemy.setHealth(enemy.getHealth() - 10);
                         System.out.println(enemy.getName() + " has been attacked and his health now is "
                                 + enemy.getHealth());
                     }
-                    obj.wait(2000);
+                    obj.wait(1500);
                 }
             }
         } catch (InterruptedException ex) {
