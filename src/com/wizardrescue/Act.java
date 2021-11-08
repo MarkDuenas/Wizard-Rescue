@@ -59,6 +59,7 @@ class Act {
             printFile(result);
             if (checkFight()) {
                 triggerFight();
+                System.out.println("Enter 1 to go to the forest.");
             }
 
             if(checkScene()) {
