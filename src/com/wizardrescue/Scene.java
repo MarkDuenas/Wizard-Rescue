@@ -37,7 +37,7 @@ public class Scene {
             System.out.println(option);
         }
 
-        Console.blankLines(20);
+        Console.clear();
         setCurrentAct(++Scene.currentAct);
         startAct(this.hero);
         if(Scene.currentAct == 3) {
