@@ -16,14 +16,9 @@ public class Hero extends Character {
         super(name, health, weapon);
     }
 
-    public void choose(int choice) {
-        // choose an option
-    }
-
     public void pickUp(String item) {
         // save item to items
     }
-
 
 
     @Override
@@ -37,8 +32,8 @@ public class Hero extends Character {
                         setHealth(getHealth() - 10);
                         System.out.println(getName() + " has been attacked and your health now is " + getHealth());
                     } else {
-                        enemy.setHealth(enemy.getHealth() - 10);
-                        System.out.println(enemy.getName() + " has been attacked and his health now is "
+                        enemy.setHealth(enemy.getHealth() - getWeapon().damage());
+                        System.out.println(enemy.getName() + " has been attacked for "+getWeapon().damage() +" and his health now is "
                                 + enemy.getHealth());
                     }
                     obj.wait(1500);

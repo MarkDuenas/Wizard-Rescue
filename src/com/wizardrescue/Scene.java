@@ -20,7 +20,6 @@ public class Scene {
             return;
         }
         Act act = new Act(Scene.currentAct, this.hero);
-        System.out.println("ACT" + Scene.currentAct + "START");
 
         act.generateStory();
 
