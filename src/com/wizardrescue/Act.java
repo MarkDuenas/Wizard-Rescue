@@ -41,7 +41,9 @@ class Act {
             result = Files.readAllLines(Path.of("data/act-" + getActNumber()
                     + "-location-" + location));
             printFile(result);
-            triggerFight();
+            if(checkFight()) {
+                triggerFight();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -55,31 +57,33 @@ class Act {
             result = Files.readAllLines(Path.of("data/act-" + getActNumber() + "-location-"
                     + location + "-opt-" + choice));
             printFile(result);
-            triggerFight();
+            if (checkFight()) {
+                triggerFight();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
     }
 
-    private void triggerFight() {
-        switch (getActNumber() + location + choice) {
-            case "122":
-                enemy = new Enemy("Mysterious Man", 80, "Axe");
-                hero.fight(enemy);
-                System.out.println("Enter 1 to go to the forest.");
-//
-            case "32":
-                enemy = new Enemy("Farmer Quentin", 100, "Pitchfork");
-                hero.fight(enemy);
-        }
 
-//        enemy = new Enemy("BarGuy", 100, "Axe");
-//        story.forEach(line -> {
-//            if (line.contains("FIGHT")) {
-//                hero.fight(enemy);
-//            }
-//        });
+    public boolean checkFight() {
+        boolean fight = false;
+        if (getActNumber() == 3 && "2".equals(location)) {
+            fight = true;
+        } else if (getActNumber() == 1 && "2".equals(location) && "2".equals(choice)) {
+            fight = true;
+        }
+        return fight;
+    }
+
+    public void triggerFight() {
+        if(getActNumber() == 1) {
+            enemy = new Enemy("Mysterious Gentleman", 80, "Brass Knuckles");
+        } else {
+            enemy = new Enemy("Farmer Quentin", 100, "Pitchfork");
+        }
+        hero.fight(enemy);
     }
 
     private void printFile(List<String> prompt) {
