@@ -40,7 +40,10 @@ public class Scene {
 
         setCurrentAct(++Scene.currentAct);
         startAct(this.hero);
-        act.endScene();
+        if(Scene.currentAct == 3) {
+            act.endScene();
+        }
+
     }
 
     public static void setCurrentAct(int currentAct) {
