@@ -27,7 +27,7 @@ public class Hero extends Character {
 
 
     @Override
-    public void fight(Character enemy) throws InterruptedException {
+    public void fight(Character enemy) {
         Object obj = new Object();
         try {
             synchronized (obj) {
@@ -45,7 +45,7 @@ public class Hero extends Character {
                 }
             }
         } catch (InterruptedException ex) {
-            System.out.println("invalid");
+            ex.printStackTrace();
         }
 
         if(getHealth() <=0){
