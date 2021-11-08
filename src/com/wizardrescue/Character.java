@@ -18,7 +18,7 @@ abstract class Character {
     }
 
     //Methods
-    abstract public void fight (Character enemy) throws InterruptedException;
+    abstract public void fight (Character enemy);
 
 
     // Accessors

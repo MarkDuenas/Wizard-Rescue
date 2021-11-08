@@ -10,24 +10,22 @@ import java.util.Scanner;
 public class Scene {
     public static int currentAct = 1;
     private Hero hero;
-    private Enemy enemy;
     private Prompter prompter = new Prompter(new Scanner(System.in));
 
-    public void startAct() {
+    public void startAct(Hero hero) {
+        this.hero = hero;
 
         if (Scene.currentAct > 3) {
+            currentAct = 1;
             return;
         }
-        Act act = new Act(Scene.currentAct);
+        Act act = new Act(Scene.currentAct, this.hero);
         System.out.println("ACT" + Scene.currentAct + "START");
 
         act.generateStory();
 
-
         String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
         System.out.println(choice);
-
-
 
         act.generateLocation(choice);
         if (Scene.currentAct != 3) {
@@ -41,12 +39,12 @@ public class Scene {
         }
 
 
-        Enemy enemy = new Enemy("Juan", 100, "Ax");
-        Hero hero = new Hero("Joe", "Sword");
-        hero.fight(enemy);
+//        Enemy enemy = new Enemy("Juan", 100, "Ax");
+//        Hero hero = new Hero("Joe", "Sword");
+//        hero.fight(enemy);
 
         setCurrentAct(++Scene.currentAct);
-        startAct();
+        startAct(this.hero);
     }
 
     public static void setCurrentAct(int currentAct) {
