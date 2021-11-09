@@ -59,14 +59,34 @@ class Act {
                 triggerFight();
                 System.out.println("Enter 1 to go to the forest.");
             }
+            updateHealth();
 
-            if(checkScene()) {
-                minusHealth();
-            }
+//            if(checkScene()) {
+//                minusHealth();
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public void updateHealth(){
+        if(getActNumber() == 2 && "2".equals(location) && "1".equals(choice)){
+            hero.setHealth(100);
+            System.out.println("Hero's health is now: " + hero.getHealth());
+            System.out.println("Enter 1 to continue to the farm.");
+        }
+        else if(getActNumber() == 1 && "1".equals(location) && "2".equals(choice)){
+            hero.setHealth(hero.getHealth() - 20);
+            System.out.println("Hero's health is now: " + hero.getHealth());
+            System.out.println("Enter 1 to continue to the forest.");
+        }
+        else if(getActNumber() == 2 && "1".equals(location) && "2".equals(choice)){
+            hero.setHealth(hero.getHealth() - 20);
+            System.out.println("Hero's health is now: " + hero.getHealth());
+            System.out.println("Enter 1 to continue to the farm.");
+        }
+
     }
 
     public void minusHealth() {
