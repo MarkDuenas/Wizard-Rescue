@@ -24,8 +24,6 @@ public class Game {
         welcome();
         scene.startAct(hero);
         gameOver();
-        ///////////
-        //do more stuff
     }
 
     public void welcome() {
@@ -77,7 +75,5 @@ public class Game {
         } else if (Integer.parseInt(playAgain) == 1) {
             execute();
         }
-
     }
-
 }
