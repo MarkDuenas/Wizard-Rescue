@@ -12,7 +12,6 @@ class Act {
     String location;
     String choice;
     List<String> story;
-    private Character enemy;
     private Hero hero;
 
     public Act(int actNumber, Hero hero) {
@@ -122,6 +121,7 @@ class Act {
     }
 
     public void triggerFight() {
+        Character enemy;
         if(getActNumber() == 1) {
             enemy = new Character("Mysterious Gentleman", 80, "brassknuckle");
         } else {
