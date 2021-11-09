@@ -57,7 +57,7 @@ class Act {
             printFile(result);
             if (checkFight()) {
                 triggerFight();
-                System.out.println("Enter 1 to go to the forest.");
+                System.out.println("Enter 1 to go to the " + Location.FOREST);
             }
             updateHealth();
 
@@ -95,9 +95,9 @@ class Act {
         System.out.println("Hero's health: " + hero.getHealth());
         System.out.println();
         if(getActNumber() == 1) {
-            System.out.println("Enter 1 to continue to the forest.");
+            System.out.println("Enter 1 to go to the " + Location.FOREST);
         } else if (getActNumber() == 2) {
-            System.out.println("Enter 1 to continue to the farm.");
+            System.out.println("Enter 1 to go to the " + Location.FARM);
         }
     }
 

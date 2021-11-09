@@ -43,10 +43,10 @@ public class Game {
             gameOver();
 
         }
-        playerName = prompter.prompt("Please enter your choice name: ");
+        playerName = prompter.prompt("Please enter your name: ");
         System.out.println(playerName);
 
-        weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe  ", "1|2|3", "Invalid choice");
+        weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3", "Invalid choice");
         System.out.println(weapon);
         insertWeapon(weapon);
         hero = new Hero(playerName, weapon);
