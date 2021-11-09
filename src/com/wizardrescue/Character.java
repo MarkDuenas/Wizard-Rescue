@@ -70,9 +70,8 @@ class Character {
     @Override
     public String toString() {
         return getClass().getSimpleName() +
-                "name='" + getName() + '\'' +
+                " name='" + getName() + '\'' +
                 ", health=" + getHealth() +
-                ", weapon='" + getWeapon() + '\'' +
-                '}';
+                ", weapon='" + getWeapon() + '\'';
     }
 }
