@@ -31,7 +31,7 @@ public class Hero extends Character {
                         System.out.println(getName() + " has been attacked and your health now is " + getHealth());
                     } else {
                         enemy.setHealth(enemy.getHealth() - getWeapon().damage());
-                        System.out.println(enemy.getName() + " has been attacked for "+getWeapon().damage() +" and his health now is "
+                        System.out.println("Your " + getWeapon() + " hits him. " + enemy.getName() + " has been attacked for "+getWeapon().damage() +" and his health now is "
                                 + enemy.getHealth());
                     }
                     obj.wait(1500);
