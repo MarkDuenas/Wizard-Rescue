@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class Game {
 
     private Scene scene = new Scene();
-    boolean gameOver;
     public String playerName;
     private String weapon;
     Hero hero;
