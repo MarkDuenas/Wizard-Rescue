@@ -1,6 +1,6 @@
 package com.wizardrescue;
 
-class Character {
+public class Character {
 
     private String name;
     private int health = 100;
@@ -43,7 +43,7 @@ class Character {
     }
 
     // inner class(enum)
-    enum Weapon {
+    public enum Weapon {
         SWORD("Sword", 12),
         AXE("Axe", 15),
         MORNINGSTAR("Morningstar", 10),
