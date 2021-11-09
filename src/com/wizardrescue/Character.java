@@ -1,6 +1,6 @@
 package com.wizardrescue;
 
-abstract class Character {
+class Character {
 
     private String name;
     private int health = 100;
@@ -16,10 +16,6 @@ abstract class Character {
         setHealth(health);
         setWeapon(weapon);
     }
-
-    //Methods
-    abstract public void fight (Character enemy);
-
 
     // Accessors
     public String getName() {

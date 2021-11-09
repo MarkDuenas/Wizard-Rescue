@@ -20,8 +20,6 @@ public class Hero extends Character {
         // save item to items
     }
 
-
-    @Override
     public void fight(Character enemy) {
         Object obj = new Object();
         try {

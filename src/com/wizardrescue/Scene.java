@@ -12,7 +12,7 @@ public class Scene {
 
     public void startAct(Hero hero) {
         this.hero = hero;
-
+//        Console.clear();
         if (Scene.currentAct > 3) {
             currentAct = 1;
             return;
@@ -21,28 +21,26 @@ public class Scene {
         Act act = new Act(Scene.currentAct, this.hero);
 
         act.generateStory();
-
+        Console.blankLines(3);
         String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
-        System.out.println(choice);
 
+        Console.blankLines(3);
         act.generateLocation(choice);
-
+        Console.blankLines(3);
         if (Scene.currentAct != 3) {
             String location = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
-            System.out.println(location);
-
+            Console.blankLines(3);
             act.generateOptions(location);
-
+            Console.blankLines(3);
             String option = prompter.prompt("Please enter your choice: ", "1", "Invalid choice: enter 1");
-            System.out.println(option);
+
         }
 
-        Console.clear();
-        setCurrentAct(++Scene.currentAct);
-        startAct(this.hero);
         if(Scene.currentAct == 3) {
             act.endScene();
         }
+        setCurrentAct(++Scene.currentAct);
+        startAct(this.hero);
 
     }
 
