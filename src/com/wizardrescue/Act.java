@@ -12,14 +12,12 @@ class Act {
     String location;
     String choice;
     List<String> story;
-    private Enemy enemy;
+    private Character enemy;
     private Hero hero;
 
     public Act(int actNumber, Hero hero) {
         setHero(hero);
         setActNumber(actNumber);
-        // setLocation(location);
-//        setStory(generateStory());
     }
 
 
@@ -38,12 +36,12 @@ class Act {
         this.location = location;
         List<String> result = new ArrayList<>();
         try {
-            result = Files.readAllLines(Path.of("data/act-" + getActNumber()
-                    + "-location-" + location));
-            printFile(result);
             if(checkFight()) {
                 triggerFight();
             }
+            result = Files.readAllLines(Path.of("data/act-" + getActNumber()
+                    + "-location-" + location));
+            printFile(result);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,7 +71,9 @@ class Act {
 
     public void minusHealth() {
         hero.setHealth(hero.getHealth() - 20);
+        System.out.println();
         System.out.println("Hero's health: " + hero.getHealth());
+        System.out.println();
         if(getActNumber() == 1) {
             System.out.println("Enter 1 to continue to the forest.");
         } else if (getActNumber() == 2) {
@@ -103,9 +103,9 @@ class Act {
 
     public void triggerFight() {
         if(getActNumber() == 1) {
-            enemy = new Enemy("Mysterious Gentleman", 80, "brassknuckle");
+            enemy = new Character("Mysterious Gentleman", 80, "brassknuckle");
         } else {
-            enemy = new Enemy("Farmer Quentin", 100, "pitchfork");
+            enemy = new Character("Farmer Quentin", 100, "pitchfork");
         }
         hero.fight(enemy);
     }
