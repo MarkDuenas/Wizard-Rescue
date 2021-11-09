@@ -32,7 +32,7 @@ public class Scene {
             Console.blankLines(3);
             act.generateOptions(location);
             Console.blankLines(3);
-            String option = prompter.prompt("Please enter your choice: ", "1", "Invalid choice: enter 1");
+            String option = prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
 
         }
 
