@@ -2,7 +2,6 @@ package com.wizardrescue.controller;
 
 import com.apps.util.Prompter;
 import com.wizardrescue.Hero;
-import com.wizardrescue.Scene;
 
 import java.io.IOException;
 import java.nio.file.Files;
