@@ -28,11 +28,13 @@ public class Hero extends Character {
                     Double rand = new Random().nextDouble();
                     if (rand >= 0.0 && rand <= 0.3) {
                         setHealth(getHealth() - 10);
-                        System.out.println(getName() + " has been attacked and your health now is " + getHealth());
+                        System.out.println("Hero " + getName() + " the " + enemy.getName() + " has attacked you " +
+                                "using it's " + enemy.getWeapon() + " and your health now is " + getHealth());
+
                     } else {
                         enemy.setHealth(enemy.getHealth() - getWeapon().damage());
-                        System.out.println("Your " + getWeapon() + " hits him. " + enemy.getName() + " has been attacked for "+getWeapon().damage() +" and his health now is "
-                                + enemy.getHealth());
+                        System.out.println("Your " + getWeapon() + " hits him. " + enemy.getName() + " has been attacked for "
+                                +getWeapon().damage() +" and his health now is " + enemy.getHealth());
                     }
                     obj.wait(1500);
                 }
@@ -42,7 +44,7 @@ public class Hero extends Character {
         }
 
         if(getHealth() <=0){
-            System.out.println("Health is now " + getHealth() + " game over");
+            System.out.println("Hero " + getName() + " health is now " + getHealth() + " game over");
         }
         else {
             System.out.println("Congratulation you have defeated the " + enemy.getName());

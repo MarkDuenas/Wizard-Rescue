@@ -69,6 +69,7 @@ public class Game {
 
         if (Integer.parseInt(playAgain) == 2) {
             //exit game
+            System.exit(0);
         } else if (Integer.parseInt(playAgain) == 1) {
             execute();
         }

@@ -58,6 +58,7 @@ public class ActTest {
         assertEquals(expected, result);
     }
 
+
     @Test
     public void generateLocation_shouldReturnListOfStringFromTextFileWithLocationNameForAct2() throws IOException {
         act.setActNumber(2);
