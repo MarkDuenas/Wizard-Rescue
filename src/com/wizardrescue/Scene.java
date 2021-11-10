@@ -12,11 +12,11 @@ public class Scene {
 
     public void startAct(Hero hero) {
         this.hero = hero;
-//        Console.clear();
         if (Scene.currentAct > 3) {
             currentAct = 1;
             return;
         }
+
 
         Act act = new Act(Scene.currentAct, this.hero);
 
@@ -33,15 +33,19 @@ public class Scene {
             Console.blankLines(3);
             act.generateOptions(location);
             Console.blankLines(3);
-            String option = prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
+            if (this.hero.getHealth() > 0) {
+                String option = prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
+            }
         }
 
-        if(Scene.currentAct == 3) {
+        if (Scene.currentAct == 3) {
             act.endScene();
         }
-        setCurrentAct(++Scene.currentAct);
-        startAct(this.hero);
 
+        setCurrentAct(++Scene.currentAct);
+        if (this.hero.getHealth() > 0) {
+            startAct(this.hero);
+        }
     }
 
     public static void setCurrentAct(int currentAct) {
