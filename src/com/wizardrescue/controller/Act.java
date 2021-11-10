@@ -75,7 +75,7 @@ public class Act {
         return result;
     }
 
-    public void updateHealth(){
+    private void updateHealth(){
         if(getActNumber() == 2 && "2".equals(getLocation()) && "1".equals(getChoice())){
             hero.setHealth(100);
             System.out.println("Hero's health is now: " + hero.getHealth());
@@ -94,7 +94,7 @@ public class Act {
 
     }
 
-    public boolean checkFight() {
+    private boolean checkFight() {
         boolean fight = false;
         if (getActNumber() == 3 && "2".equals(location)) {
             fight = true;
@@ -104,7 +104,7 @@ public class Act {
         return fight;
     }
 
-    public void triggerFight() {
+    private void triggerFight() {
         Character enemy;
         if(getActNumber() == 1) {
             enemy = new Character("Rian", 80, "brassknuckle");
@@ -133,24 +133,24 @@ public class Act {
         this.actNumber = actNumber;
     }
 
-    public int getActNumber() {
+    private int getActNumber() {
         return actNumber;
     }
 
 
-    public Hero getHero() {
+    private Hero getHero() {
         return hero;
     }
 
-    public void setHero(Hero hero) {
+    private void setHero(Hero hero) {
         this.hero = hero;
     }
 
-    public String getChoice() {
+    private String getChoice() {
         return choice;
     }
 
-    public String getLocation() {
+    private String getLocation() {
         return location;
     }
 
@@ -158,7 +158,7 @@ public class Act {
         this.location = location;
     }
 
-    public void setChoice(String choice) {
+    private void setChoice(String choice) {
         this.choice = choice;
     }
 
