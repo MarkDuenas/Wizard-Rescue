@@ -9,14 +9,14 @@ public class Scene {
     private Hero hero;
     private Prompter prompter;
 
-    public Scene(Prompter prompter) {
+    public Scene(Prompter prompter, Hero hero) {
+        setHero(hero);
         this.prompter = prompter;
     }
 
-    public void startAct(Hero hero) {
-        this.hero = hero;
+    public void startAct() {
+        Act act = new Act(Scene.currentAct, getHero());
 
-        Act act = new Act(Scene.currentAct, this.hero);
         act.generateStory();
         Console.blankLines(3);
         String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
@@ -30,7 +30,7 @@ public class Scene {
             Console.blankLines(3);
             act.generateOptions(location);
             Console.blankLines(3);
-            if (this.hero.getHealth() > 0) {
+            if (getHero().getHealth() > 0) {
                  prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
             }
         }
@@ -45,5 +45,13 @@ public class Scene {
 
     public static void setCurrentAct(int currentAct) {
         Scene.currentAct = currentAct;
+    }
+
+    private Hero getHero() {
+        return hero;
+    }
+
+    private void setHero(Hero hero) {
+        this.hero = hero;
     }
 }
