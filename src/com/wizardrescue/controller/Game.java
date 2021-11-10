@@ -11,15 +11,27 @@ import java.util.Scanner;
 
 public class Game {
 
-    private Scene scene = new Scene();
-    public String playerName;
-    Hero hero;
-    Prompter prompter = new Prompter(new Scanner(System.in));
+    private boolean gameOver;
+    private Hero hero;
+    private Prompter prompter = new Prompter(new Scanner(System.in));
+    private Scene scene = new Scene(prompter);
 
     public void execute() {
         welcome();
-        scene.startAct(hero);
+        sceneStart();
         gameOver();
+    }
+
+    private void sceneStart() {
+        while (!gameOver) {
+            if (hero.getHealth() > 0 && Scene.currentAct <= 3) {
+                scene.startAct(hero);
+            }
+            else {
+                Scene.setCurrentAct(1);
+                gameOver = true;
+            }
+        }
     }
 
     public void welcome() {
@@ -37,7 +49,7 @@ public class Game {
         if (Integer.parseInt(result) == 2) {
             gameOver();
         }
-        playerName = prompter.prompt("Please enter your name: ");
+        String playerName = prompter.prompt("Please enter your name: ");
         System.out.println(playerName);
 
         String weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3", "Invalid choice");
@@ -66,9 +78,9 @@ public class Game {
         System.out.println(playAgain);
 
         if (Integer.parseInt(playAgain) == 2) {
-            //exit game
             System.exit(0);
         } else if (Integer.parseInt(playAgain) == 1) {
+            gameOver = false;
             execute();
         }
     }
