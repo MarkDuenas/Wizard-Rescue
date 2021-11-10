@@ -42,11 +42,6 @@ public class Scene {
         setCurrentAct(++Scene.currentAct);
     }
 
-//    public List<String> introToAct() {
-//        Act act = new Act(Scene.currentAct, this.hero);
-//        act.generateStory();
-//        Console.blankLines(3);
-//    }
 
     public static void setCurrentAct(int currentAct) {
         Scene.currentAct = currentAct;

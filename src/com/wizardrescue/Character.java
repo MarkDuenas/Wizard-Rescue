@@ -22,7 +22,7 @@ public class Character {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -38,7 +38,7 @@ public class Character {
         return weapon;
     }
 
-    public void setWeapon(String weapon) {
+    private void setWeapon(String weapon) {
         this.weapon = Weapon.valueOf(weapon.toUpperCase());
     }
 
