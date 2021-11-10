@@ -34,11 +34,14 @@ class Act {
         setLocation(location);
         List<String> result = new ArrayList<>();
         try {
-            if(checkFight()) {
-                triggerFight();
-            }
             result = Files.readAllLines(Path.of("data/act-" + getActNumber()
                     + "-location-" + location));
+            if(checkFight()) {
+                triggerFight();
+                if(getHero().getHealth() <= 0) {
+                    return result;
+                }
+            }
             printFile(result);
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,13 +58,13 @@ class Act {
             printFile(result);
             if (checkFight()) {
                 triggerFight();
+                if(getHero().getHealth() <= 0) {
+                    return result;
+                }
                 System.out.println("Enter 1 to go to the " + Location.FOREST);
             }
             updateHealth();
 
-//            if(checkScene()) {
-//                minusHealth();
-//            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,28 +90,6 @@ class Act {
 
     }
 
-    public void minusHealth() {
-        getHero().setHealth(getHero().getHealth() - 20);
-        System.out.println();
-        System.out.println("Hero's health: " + getHero().getHealth());
-        System.out.println();
-        if(getActNumber() == 1) {
-            System.out.println("Enter 1 to go to the " + Location.FOREST);
-        } else if (getActNumber() == 2) {
-            System.out.println("Enter 1 to go to the " + Location.FARM);
-        }
-    }
-
-    public boolean checkScene() {
-        boolean scene = false;
-        if (getActNumber() == 1 && "1".equals(location) && "2".equals(choice)) {
-            scene = true;
-        } else if(getActNumber() == 2 && "1".equals(location) && "2".equals(choice)){
-            scene = true;
-        }
-        return scene;
-    }
-
     public boolean checkFight() {
         boolean fight = false;
         if (getActNumber() == 3 && "2".equals(location)) {
@@ -127,6 +108,17 @@ class Act {
             enemy = new Character("Farmer Quentin", 100, "pitchfork");
         }
         getHero().fight(enemy);
+    }
+
+    public List<String> endScene() {
+        List<String> result = new ArrayList<>();
+        try {
+            result = Files.readAllLines(Path.of("data/conclusion"));
+            printFile(result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     private void printFile(List<String> prompt) {
@@ -166,14 +158,4 @@ class Act {
         this.choice = choice;
     }
 
-    public List<String> endScene() {
-        List<String> result = new ArrayList<>();
-        try {
-            result = Files.readAllLines(Path.of("data/conclusion"));
-            printFile(result);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 }
