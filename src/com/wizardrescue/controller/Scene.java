@@ -15,23 +15,30 @@ public class Scene {
     }
 
     public void startAct() {
+        Console.clear();
+        System.out.println(hero);
         Act act = new Act(Scene.currentAct, getHero());
 
         act.generateStory();
         Console.blankLines(3);
         String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
 
-        Console.blankLines(3);
+        if (Scene.currentAct != 3) {
+            Console.clear();
+        }
+
         act.generateLocation(choice);
         Console.blankLines(3);
 
         if (Scene.currentAct != 3) {
             String location = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
-            Console.blankLines(3);
+            Console.clear();
+
             act.generateOptions(location);
             Console.blankLines(3);
             if (getHero().getHealth() > 0) {
-                 prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
+                prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
+                Console.clear();
             }
         }
 

@@ -44,19 +44,17 @@ public class Game {
         }
 
         String result = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
-        System.out.println(result);
+        System.out.println();
 
         if (Integer.parseInt(result) == 2) {
             gameOver();
         }
         String playerName = prompter.prompt("Please enter your name: ");
-        System.out.println(playerName);
+        System.out.println();
 
         String weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3", "Invalid choice");
         String heroWeapon = insertWeapon(weapon);
         hero = new Hero(playerName, heroWeapon);
-        System.out.println(hero);
-
     }
 
     private String insertWeapon(String weapon) {
@@ -72,7 +70,7 @@ public class Game {
     }
 
     private void gameOver() {
-        System.out.println("Game Over");
+        System.out.println("\nGame Over");
         System.out.println("Play again: Enter 1; Exit: Enter 2");
         String playAgain = prompter.prompt("Please enter your choice: ", "1|2", "Invalid Choice");
         System.out.println(playAgain);
