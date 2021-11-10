@@ -1,9 +1,8 @@
-  _____          _     _     _     _              _____                        _
- |  ___|__  _ __| |__ (_) __| | __| | ___ _ __   |  ___|__  _ __ _ __ ___  ___| |_
- | |_ / _ \| '__| '_ \| |/ _` |/ _` |/ _ \ '_ \  | |_ / _ \| '__| '__/ _ \/ __| __|
- |  _| (_) | |  | |_) | | (_| | (_| |  __/ | | | |  _| (_) | |  | | |  __/\__ \ |_
- |_|  \___/|_|  |_.__/|_|\__,_|\__,_|\___|_| |_| |_|  \___/|_|  |_|  \___||___/\__|
-
+  _____          _     _     _     _              _____                   _
+ |  ___|__  _ __| |__ (_) __| | __| | ___ _ __   |  ___|__  _ __ ___  ___| |_
+ | |_ / _ \| '__| '_ \| |/ _` |/ _` |/ _ \ '_ \  | |_ / _ \| '__/ _ \/ __| __|
+ |  _| (_) | |  | |_) | | (_| | (_| |  __/ | | | |  _| (_) | | |  __/\__ \ |_
+ |_|  \___/|_|  |_.__/|_|\__,_|\__,_|\___|_| |_| |_|  \___/|_|  \___||___/\__|
 
 Read the carving on the tree.....
 
@@ -29,8 +28,6 @@ Read the carving on the tree.....
          __...--- |'-.-'| --...__
   _...--"   .-'   |'-.-'|  ' -.  ""--..__
 -"    ' .  . '    |.'-._| '  . .  '
-.  '-  '    .--'  | '-.'|    .  '  . '
-         ' ..     |'-_.-|
  .  '  .       _.-|-._ -|-._  .  '  .
              .'   |'- .-|   '.
  ..-'   ' .  '.   `-._.-´   .'  '  - .
@@ -43,10 +40,8 @@ Read the carving on the tree.....
  |         to receive?         |
   \___________________________/
 
-The tree has poisonous newt dusk on it causing you to lose 20 health points.
-
-
-
+The tree has poisonous newt dusk on it causing you to lose 20 health points but behind the tree
+is a chest full of goblin's gold.
                             _.--.
                         _.-'_:-'||
                     _.-'_.-::::'||
@@ -68,4 +63,3 @@ The tree has poisonous newt dusk on it causing you to lose 20 health points.
                     '-.||_/.-'
 
 If you wish to save Wizard Jay, before times runs out, you must head to the farm with the goblin's gold.
-
