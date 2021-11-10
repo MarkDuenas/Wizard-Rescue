@@ -16,7 +16,6 @@ public class Game {
     private Scene scene = new Scene();
     boolean gameOver;
     public String playerName;
-    private String weapon;
     Hero hero;
     Prompter prompter = new Prompter(new Scanner(System.in));
 
@@ -27,7 +26,6 @@ public class Game {
     }
 
     public void welcome() {
-
         try {
             Files.readAllLines(Path.of("data/introduction")).forEach(
                     line -> System.out.println(line)
@@ -41,27 +39,27 @@ public class Game {
 
         if (Integer.parseInt(result) == 2) {
             gameOver();
-
         }
         playerName = prompter.prompt("Please enter your name: ");
         System.out.println(playerName);
 
-        weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3", "Invalid choice");
-        System.out.println(weapon);
-        insertWeapon(weapon);
-        hero = new Hero(playerName, weapon);
+        String weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3", "Invalid choice");
+        String heroWeapon = insertWeapon(weapon);
+        hero = new Hero(playerName, heroWeapon);
         System.out.println(hero);
 
     }
 
-    private void insertWeapon(String weapon) {
+    private String insertWeapon(String weapon) {
+        String result = null;
         if (weapon.equals("1")) {
-            this.weapon = "sword";
+            result = "sword";
         } else if (weapon.equals("2")) {
-            this.weapon = "morningstar";
+            result = "morningstar";
         } else if (weapon.equals("3")) {
-            this.weapon = "axe";
+            result = "axe";
         }
+        return result;
     }
 
     private void gameOver() {

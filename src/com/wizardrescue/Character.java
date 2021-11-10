@@ -1,6 +1,6 @@
 package com.wizardrescue;
 
-class Character {
+public class Character {
 
     private String name;
     private int health = 100;
