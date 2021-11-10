@@ -25,6 +25,7 @@ public class Act {
 
     public List<String> generateStory() {
         List<String> result = new ArrayList<>();
+
         try {
             result = Files.readAllLines(Path.of("data/act-" + getActNumber()));
             printFile(result);
