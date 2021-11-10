@@ -20,21 +20,21 @@ public class Hero extends Character {
 
         while (enemy.getHealth() > 0 && getHealth() > 0) {
             Double rand = new Random().nextDouble();
-            if (rand >= 0.0 && rand <= 0.90) {
-                setHealth(getHealth() - 50);
+            if (rand >= 0.0 && rand <= 0.35) {
+                setHealth(getHealth() - enemy.getWeapon().damage());
                 System.out.println("Hero " + getName() + " the " + enemy.getName() + " has attacked you " +
-                        "using it's " + enemy.getWeapon() + " and your health now is " + getHealth());
+                        "using it's " + enemy.getWeapon().display() + " and your health now is " + getHealth());
 
             } else {
                 enemy.setHealth(enemy.getHealth() - getWeapon().damage());
-                System.out.println("Your " + getWeapon() + " hits him. " + enemy.getName() + " has been attacked for "
+                System.out.println("Your " + getWeapon().display() + " hits him. " + enemy.getName() + " has been attacked for "
                         + getWeapon().damage() + " and his health now is " + enemy.getHealth());
             }
             pause(1500);
         }
 
         if (getHealth() <= 0) {
-            System.out.println("Hero " + getName() + " your health has dropped below 1, your journey has ended for now. Please try again!");
+            System.out.println("Hero " + getName() + ", your health has dropped below 1, your journey has ended for now. Please try again!");
         } else {
             System.out.println("Congratulation you have defeated the " + enemy.getName());
         }

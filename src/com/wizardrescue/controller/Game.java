@@ -14,18 +14,19 @@ public class Game {
     private boolean gameOver;
     private Hero hero;
     private Prompter prompter = new Prompter(new Scanner(System.in));
-    private Scene scene = new Scene(prompter);
+    private Scene scene;
 
     public void execute() {
         welcome();
-        sceneStart();
+        startScene();
         gameOver();
     }
 
-    private void sceneStart() {
+    private void startScene() {
+        scene = new Scene(prompter, hero);
         while (!gameOver) {
             if (hero.getHealth() > 0 && Scene.currentAct <= 3) {
-                scene.startAct(hero);
+                scene.startAct();
             }
             else {
                 Scene.setCurrentAct(1);
