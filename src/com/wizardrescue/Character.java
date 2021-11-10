@@ -42,8 +42,8 @@ public class Character {
         this.weapon = Weapon.valueOf(weapon.toUpperCase());
     }
 
-    // inner class(enum)
-    public enum Weapon {
+    // static nested class(enum)
+    public static enum Weapon {
         SWORD("Sword", 12),
         AXE("Axe", 15),
         MORNINGSTAR("Morningstar", 10),

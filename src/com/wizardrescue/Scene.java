@@ -3,23 +3,22 @@ package com.wizardrescue;
 import com.apps.util.Console;
 import com.apps.util.Prompter;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Scene {
     public static int currentAct = 1;
     private Hero hero;
-    private Prompter prompter = new Prompter(new Scanner(System.in));
+    private Prompter prompter;
+
+    public Scene(Prompter prompter) {
+        this.prompter = prompter;
+    }
 
     public void startAct(Hero hero) {
         this.hero = hero;
-        if (Scene.currentAct > 3) {
-            currentAct = 1;
-            return;
-        }
-
 
         Act act = new Act(Scene.currentAct, this.hero);
-
         act.generateStory();
         Console.blankLines(3);
         String choice = prompter.prompt("Please enter your choice: ", "1|2", "Invalid choice: enter 1 or 2");
@@ -43,10 +42,13 @@ public class Scene {
         }
 
         setCurrentAct(++Scene.currentAct);
-        if (this.hero.getHealth() > 0) {
-            startAct(this.hero);
-        }
     }
+
+//    public List<String> introToAct() {
+//        Act act = new Act(Scene.currentAct, this.hero);
+//        act.generateStory();
+//        Console.blankLines(3);
+//    }
 
     public static void setCurrentAct(int currentAct) {
         Scene.currentAct = currentAct;
