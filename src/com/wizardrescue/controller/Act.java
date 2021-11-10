@@ -1,4 +1,8 @@
-package com.wizardrescue;
+package com.wizardrescue.controller;
+
+import com.wizardrescue.Character;
+import com.wizardrescue.Hero;
+import com.wizardrescue.Location;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,7 +10,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-class Act {
+public class Act {
 
     private int actNumber;
     private String location;
@@ -75,17 +79,17 @@ class Act {
         if(getActNumber() == 2 && "2".equals(getLocation()) && "1".equals(getChoice())){
             hero.setHealth(100);
             System.out.println("Hero's health is now: " + hero.getHealth());
-            System.out.println("Enter 1 to continue to the farm.");
+            System.out.println("Enter 1 to continue to the " + Location.FARM);
         }
         else if(getActNumber() == 1 && "1".equals(location) && "2".equals(choice)){
             hero.setHealth(hero.getHealth() - 20);
             System.out.println("Hero's health is now: " + hero.getHealth());
-            System.out.println("Enter 1 to continue to the forest.");
+            System.out.println("Enter 1 to continue to the " + Location.FOREST);
         }
         else if(getActNumber() == 2 && "1".equals(location) && "2".equals(choice)){
             hero.setHealth(hero.getHealth() - 20);
             System.out.println("Hero's health is now: " + hero.getHealth());
-            System.out.println("Enter 1 to continue to the farm.");
+            System.out.println("Enter 1 to continue to the " + Location.FARM);
         }
 
     }

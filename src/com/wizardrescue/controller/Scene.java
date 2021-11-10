@@ -1,10 +1,8 @@
-package com.wizardrescue;
+package com.wizardrescue.controller;
 
 import com.apps.util.Console;
 import com.apps.util.Prompter;
-
-import java.util.List;
-import java.util.Scanner;
+import com.wizardrescue.Hero;
 
 public class Scene {
     public static int currentAct = 1;
