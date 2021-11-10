@@ -9,9 +9,8 @@ import java.util.List;
 class Act {
 
     private int actNumber;
-    String location;
-    String choice;
-    List<String> story;
+    private String location;
+    private String choice;
     private Hero hero;
 
     public Act(int actNumber, Hero hero) {
@@ -32,7 +31,7 @@ class Act {
     }
 
     public List<String> generateLocation(String location) {
-        this.location = location;
+        setLocation(location);
         List<String> result = new ArrayList<>();
         try {
             if(checkFight()) {
@@ -48,7 +47,7 @@ class Act {
     }
 
     public List<String> generateOptions(String choice) {
-        this.choice = choice;
+        setChoice(choice);
         List<String> result = new ArrayList<>();
         try {
             result = Files.readAllLines(Path.of("data/act-" + getActNumber() + "-location-"
@@ -70,7 +69,7 @@ class Act {
     }
 
     public void updateHealth(){
-        if(getActNumber() == 2 && "2".equals(location) && "1".equals(choice)){
+        if(getActNumber() == 2 && "2".equals(getLocation()) && "1".equals(getChoice())){
             hero.setHealth(100);
             System.out.println("Hero's health is now: " + hero.getHealth());
             System.out.println("Enter 1 to continue to the farm.");
@@ -89,9 +88,9 @@ class Act {
     }
 
     public void minusHealth() {
-        hero.setHealth(hero.getHealth() - 20);
+        getHero().setHealth(getHero().getHealth() - 20);
         System.out.println();
-        System.out.println("Hero's health: " + hero.getHealth());
+        System.out.println("Hero's health: " + getHero().getHealth());
         System.out.println();
         if(getActNumber() == 1) {
             System.out.println("Enter 1 to go to the " + Location.FOREST);
@@ -127,14 +126,14 @@ class Act {
         } else {
             enemy = new Character("Farmer Quentin", 100, "pitchfork");
         }
-        hero.fight(enemy);
+        getHero().fight(enemy);
     }
 
     private void printFile(List<String> prompt) {
         prompt.forEach(System.out::println);
     }
 
-    private void setActNumber(int actNumber) {
+    public void setActNumber(int actNumber) {
         this.actNumber = actNumber;
     }
 
@@ -142,14 +141,6 @@ class Act {
         return actNumber;
     }
 
-
-    public List<String> getStory() {
-        return story;
-    }
-
-    public void setStory(List<String> story) {
-        this.story = story;
-    }
 
     public Hero getHero() {
         return hero;
@@ -161,6 +152,18 @@ class Act {
 
     public String getChoice() {
         return choice;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setChoice(String choice) {
+        this.choice = choice;
     }
 
     public List<String> endScene() {
