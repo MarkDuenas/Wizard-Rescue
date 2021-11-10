@@ -72,6 +72,6 @@ public class Character {
         return getClass().getSimpleName() +
                 " name='" + getName() + '\'' +
                 ", health=" + getHealth() +
-                ", weapon='" + getWeapon() + '\'';
+                ", weapon='" + getWeapon().display() + '\'';
     }
 }
