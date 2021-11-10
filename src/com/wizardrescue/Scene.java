@@ -34,7 +34,7 @@ public class Scene {
             act.generateOptions(location);
             Console.blankLines(3);
             if (this.hero.getHealth() > 0) {
-                String option = prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
+                 prompter.prompt("Please enter to proceed: ", "1", "Invalid choice: enter 1");
             }
         }
 
