@@ -22,8 +22,8 @@ public class Hero extends Character {
             synchronized (obj) {
                 while (enemy.getHealth() > 0 && getHealth() > 0) {
                     Double rand = new Random().nextDouble();
-                    if (rand >= 0.0 && rand <= 0.8) {
-                        setHealth(getHealth() - 50);
+                    if (rand >= 0.0 && rand <= 0.35) {
+                        setHealth(getHealth() - 10);
                         System.out.println("Hero " + getName() + " the " + enemy.getName() + " has attacked you " +
                                 "using it's " + enemy.getWeapon() + " and your health now is " + getHealth());
 

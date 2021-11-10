@@ -103,7 +103,7 @@ class Act {
     public void triggerFight() {
         Character enemy;
         if(getActNumber() == 1) {
-            enemy = new Character("Mysterious Gentleman", 80, "brassknuckle");
+            enemy = new Character("Rian", 80, "brassknuckle");
         } else {
             enemy = new Character("Farmer Quentin", 100, "pitchfork");
         }
