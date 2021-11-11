@@ -1,3 +1,3 @@
 @echo off
 
-java -classpath out\production\Wizard-Rescue;"lib\*" Main
+java -classpath wizardrescue-1.0.jar;"lib\*" com.wizardrescue.client.Main
