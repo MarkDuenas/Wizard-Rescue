@@ -71,7 +71,7 @@ public class Character {
     public String toString() {
         return getClass().getSimpleName() +
                 " name='" + getName() + '\'' +
-                ", health=" + getHealth() +
-                ", weapon='" + getWeapon().display() + '\'';
+                ", Health=" + getHealth() +
+                ", Weapon='" + getWeapon().display() + '\'';
     }
 }
