@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 
-import com.wizardrescue.model.controller.Act;
+import com.wizardrescue.controller.Act;
 import org.junit.Before;
 import org.junit.Test;
 

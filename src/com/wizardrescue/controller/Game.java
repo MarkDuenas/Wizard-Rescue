@@ -1,4 +1,4 @@
-package com.wizardrescue.model.controller;
+package com.wizardrescue.controller;
 
 import com.apps.util.Prompter;
 import com.wizardrescue.model.Hero;
