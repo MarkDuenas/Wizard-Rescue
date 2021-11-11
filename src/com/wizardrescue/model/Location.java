@@ -1,4 +1,4 @@
-package com.wizardrescue;
+package com.wizardrescue.model;
 
 public enum Location {
     FOREST, FARM

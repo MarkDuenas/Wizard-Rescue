@@ -1,9 +1,6 @@
-package com.wizardrescue;
+package com.wizardrescue.model;
 
 import org.junit.Test;
-
-import java.sql.SQLOutput;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 

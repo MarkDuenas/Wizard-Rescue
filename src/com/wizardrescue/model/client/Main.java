@@ -1,6 +1,6 @@
-package com.wizardrescue.client;
+package com.wizardrescue.model.client;
 
-import com.wizardrescue.controller.Game;
+import com.wizardrescue.model.controller.Game;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.wizardrescue;
+package com.wizardrescue.model;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 
-import com.wizardrescue.controller.Act;
+import com.wizardrescue.model.controller.Act;
 import org.junit.Before;
 import org.junit.Test;
 
