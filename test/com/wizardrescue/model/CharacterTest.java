@@ -1,4 +1,4 @@
-package com.wizardrescue;
+package com.wizardrescue.model;
 
 import org.junit.Before;
 import org.junit.Test;

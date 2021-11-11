@@ -1,8 +1,8 @@
-package com.wizardrescue.controller;
+package com.wizardrescue.model.controller;
 
-import com.wizardrescue.Character;
-import com.wizardrescue.Hero;
-import com.wizardrescue.Location;
+import com.wizardrescue.model.Character;
+import com.wizardrescue.model.Hero;
+import com.wizardrescue.model.Location;
 
 import java.io.IOException;
 import java.nio.file.Files;
