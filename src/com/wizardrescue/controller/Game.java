@@ -52,19 +52,24 @@ public class Game {
         String playerName = prompter.prompt("Please enter your name: ");
         System.out.println();
 
-        String weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3", "Invalid choice");
+        String weapon = prompter.prompt("Please enter your weapon: 1--Sword, 2--Morningstar, 3--Axe ", "1|2|3",
+                "Invalid choice");
         String heroWeapon = insertWeapon(weapon);
         hero = new Hero(playerName, heroWeapon);
     }
 
     private String insertWeapon(String weapon) {
         String result = null;
-        if (weapon.equals("1")) {
-            result = "sword";
-        } else if (weapon.equals("2")) {
-            result = "morningstar";
-        } else if (weapon.equals("3")) {
-            result = "axe";
+        switch (weapon) {
+            case "1":
+                result = "sword";
+                break;
+            case "2":
+                result = "morningstar";
+                break;
+            case "3":
+                result = "axe";
+                break;
         }
         return result;
     }
