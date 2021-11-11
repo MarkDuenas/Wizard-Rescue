@@ -1,16 +1,15 @@
-package com.wizardrescue;
+package com.wizardrescue.model.controller;
 
-import static org.junit.Assert.*;
+import com.wizardrescue.model.Hero;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-
-import com.wizardrescue.controller.Act;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class ActTest {
     Hero hero;
